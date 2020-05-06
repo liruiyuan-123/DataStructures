@@ -1,4 +1,4 @@
-
+# 如果a+b+c = 1000，并且a^2 + b^2 = c^2，求出所有的a,b,c可能的组合
 # 第一次算法时间
 # import time
 
@@ -70,3 +70,14 @@ a,b,c:500,0,500
 '''
 
 # 作业：计算前1000个正整数的和
+import time
+start_time = time.time()
+a = 0
+for i in range(1,10001):
+
+    a += i
+print("前10000个正整数的和%d"%a)
+print(a)
+end_time = time.time()
+
+print("运行时间:%a"%(end_time-start_time))
