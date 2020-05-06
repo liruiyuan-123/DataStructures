@@ -65,19 +65,75 @@ a,b,c:500,0,500
     4.最终算法用什么衡量？
         时间复杂度
     5.表示法：大o记法
-        O(n^3)
+        假设计算机执行算法每个基本操作的时间是固定的一个时间单位，那么有多少个基本操作就代表会发费多少时间单位
+        虽然对于不同的机器环境而言，确切的时间单位是不同的，但是对于算法进行多少个基本操作在规模数量级上是相同的
+        因此，可以忽略机器环境的影响而客观的反应算法的时间效率
+        对于算法的时间效率，用“大o记法”
+        O(n^3)   100n^2    10000n^2
         O(n^2)
+    6.时间复杂度分类
+        最优时间复杂度：算法完成工作最少需要多少基本操作（过于理想化，没什么参考价值）
+        最坏时间复杂度：算法完成工作最多需要多少基本操作（提供了一种保证，表明算法在此程度的基本操作中一定能完成工作）
+        平均时间复杂度：算法完成工作平均需要多少基本操作（对算法整体一个全面的评价，但是这种衡量方式没有保证，）
+        我们关注算法的最坏情况！！！ ———> 最坏时间复杂度
+    7.时间复杂度的几条基本计算规则
+        基本操作，也就是只有常数项，认为其时间复杂度为o（1）
+        顺序结构，时间复杂度按加法进行计算
+        循环结构，时间复杂度按乘法进行计算
+        分支，取最大值、
+        判断一个算法的效率时，只需要关注操作数量的最高次项，其他次要项和常数项可以忽略
+        没有特殊情况下，我们分析的都是最坏时间复杂度
+    8.练习
+        12                                     o(1)
+        2n+3                                   o(n)
+        3n^2 +2n + 1                           o(n^2)
+        5log2n + 20                            o(logn)
+        2n + 5nlog2n + 20                      o(nlogn)
+        1000000n^2 + 2*n^3 +4                  o(n^3)
+        2^n                                    o(2^n)
+
+        0(1) < o(logn) o(n) < o(nlogn) < o(n^2) < o(n^3) < o(2^n) < o(n!) < o(n^n)
+    9.练习：求n个正整数的和（高斯算法）
 '''
 
 # 作业：计算前1000个正整数的和
-import time
-start_time = time.time()
-a = 0
-for i in range(1,10001):
+# import time
 
-    a += i
-print("前10000个正整数的和%d"%a)
-print(a)
-end_time = time.time()
 
-print("运行时间:%a"%(end_time-start_time))
+# def sum_of_n(n):
+#     start_time = time.time()
+#     the_sum = 0
+#     for i in range(1,n+1):
+#         the_sum = the_sum +1
+#     end_time = time.time()
+#     return the_sum,end_time-start_time
+
+# print(sum_of_n(1000000))
+
+
+# def sum_of_n_2(n):
+    
+#     return (n*(n+1))/2
+# start = time.time()
+# print(sum_of_n_2(1000000))
+# end = time.time()
+# print(end-start)
+
+'''
+    练习：求出列表中的最小值，
+    要求:函数1：o(n^2)  两两比较
+    函数2：o(n)         设置一个临时变量，更优化的算法就是把这个临时变量设置成列表中的第一个元素
+'''
+my_list = [3,4,5,6,8,100,22,12,500,12,2000]
+def get_min(my_list):
+    for i in range(len(my_list)):
+        for j in range(len(my_list)):
+            if my_list[i] < my_list[j]:
+                return
+            return my_list[i]
+
+print(get_min(my_list))
+
+def get_min2():
+    pass
+
