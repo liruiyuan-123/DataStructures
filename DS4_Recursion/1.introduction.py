@@ -62,10 +62,6 @@
         2. 计算某个数的阶乘的递归算法，（最合适的基本结束条件）,假设0！= 1 
         5！= 5*4*3*2*1
         n == 1
-
-
-
-'''
 def fact(n):
     if n == 1 or n == 0:
         return 1
@@ -74,6 +70,34 @@ def fact(n):
 
 print(fact(5))
 
+    四、LeetCode 第405题
+        给定一个整数，编写一个算法将这个数转换为十六进制数，
+        对于负整数，我们通常使用补码运算方法
 
+        给定一个整数，转换成任意进制的数表示的字符串格式
+
+        769   转换成字符串（递归方式）  769
+
+'''
+from pythonds.basic.stack import Stack
+s = Stack()
+
+def to_str(num,base):
+    conver_str = "0123456789ABCDEF"
+    while num > 0:
+        if num<base:
+            s.push(conver_str[num])
+        else:
+            s.push(conver_str[num%base])
+        num = num//base
+    result = ""
+    while not s.isEmpty():
+        result = result + s.pop()
+    return result
+
+print(to_str(769,2))
+print(to_str(769,8))
+print(to_str(769,10))
+print(to_str(7693,16))
 
 
