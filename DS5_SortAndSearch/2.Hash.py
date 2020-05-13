@@ -37,4 +37,5 @@ def hash(astring,tablesize):
         sum = sum + ord(astring[pos])
     return sum%tablesize
 print(hash('cat',11))
+
 '''
